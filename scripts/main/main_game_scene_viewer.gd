@@ -32,6 +32,10 @@ func start_game(game_scene, input):
 	add_child(scene)
 	scene.start_game(input)
 
-func _on_main_control_start_game(game_scene: Variant) -> void:
-	if money > 0:
-		start_game(game_scene, money)
+
+func _on_main_control_start_game(game_scene: Variant, game_num: Variant) -> void:
+	if game_num == 0:
+		if money > 0:
+			start_game(game_scene, money)
+	else:
+		start_game(game_scene, 0)
