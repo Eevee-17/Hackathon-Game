@@ -38,7 +38,6 @@ texture = ExtResource("2_uuf4u")
 script = ExtResource("3_u2huu")
 
 [node name="Area2D" type="Area2D" parent="Businessman" groups=["bm"]]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Businessman/Area2D"]
 position = Vector2(0, 16)
@@ -46,7 +45,6 @@ shape = SubResource("CircleShape2D_hb10l")
 
 [node name="Money" type="Area2D" parent="Businessman" groups=["money"]]
 position = Vector2(0, 23.9999)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Businessman/Money"]
 position = Vector2(-136.557, 98.865)
@@ -59,21 +57,17 @@ texture = ExtResource("1_snhs5")
 script = ExtResource("5_oaopn")
 
 [node name="Area2D" type="Area2D" parent="Player"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
 position = Vector2(-117.662, 72.5074)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_27ql2")
 
 [node name="Hand" type="Area2D" parent="Player"]
 position = Vector2(120, 39.9999)
 rotation = -0.226893
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hand"]
 position = Vector2(487.208, 145.844)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_at1xy")
 
 [node name="Alert" type="Sprite2D" parent="."]

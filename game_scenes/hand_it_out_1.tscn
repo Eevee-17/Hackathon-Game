@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck6ir7n1qnxa8"]
+
+[ext_resource type="Script" path="res://scripts/handitout1/spawner.gd" id="1_rau5c"]
+[ext_resource type="Script" path="res://scripts/handitout1/player.gd" id="2_4nnef"]
+[ext_resource type="PackedScene" uid="uid://bl8a28dif8sdv" path="res://game_scenes/hand_out_man.tscn" id="2_qn6xn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olvx7"]
+size = Vector2(409.058, 739.461)
+
+[node name="HandItOut1" type="Node2D"]
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(96, 0)
+script = ExtResource("1_rau5c")
+man_scene = ExtResource("2_qn6xn")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(96, 352)
+scale = Vector2(0.293357, 0.292105)
+script = ExtResource("2_4nnef")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(-13.6353, 13.6938)
+shape = SubResource("RectangleShape2D_olvx7")

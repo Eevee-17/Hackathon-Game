@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl8a28dif8sdv"]
+
+[ext_resource type="Script" path="res://scripts/handitout1/hand_out_man.gd" id="1_1g7tt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63kq0"]
+size = Vector2(360, 496)
+
+[node name="HandOutMan" type="Node2D"]
+script = ExtResource("1_1g7tt")
+
+[node name="Man" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="Area2D" type="Area2D" parent="Man"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Man/Area2D"]
+shape = SubResource("RectangleShape2D_63kq0")
