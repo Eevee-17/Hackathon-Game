@@ -14,7 +14,7 @@ func _on_start_game(game_scene: Variant) -> void:
 		child.disabled = true
 
 
-func _on_game_game_ended(game_num: Variant, money_val: Variant) -> void:
-	$Info.text = "Games done: " + str(game_num) + "\nMoney: " + str(money_val)
+func _on_game_game_ended(game_num: Variant, money_val: Variant, lives_left: Variant) -> void:
+	$Info.text = "Games done: " + str(game_num) + "\nMoney: " + str(money_val) + "\nLives: " + str(lives_left)
 	for child in $GameButtons.get_children():
 		child.disabled = false
