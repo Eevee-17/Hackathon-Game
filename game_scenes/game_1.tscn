@@ -1,12 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcniq3wmj70ku"]
+[gd_scene load_steps=16 format=3 uid="uid://bcniq3wmj70ku"]
 
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="1_snhs5"]
+[ext_resource type="Texture2D" uid="uid://leixa2iyhdkt" path="res://assets/city_background_1.png" id="1_y438g"]
+[ext_resource type="Texture2D" uid="uid://c6mj3b8ggjgif" path="res://assets/businessman.png" id="2_uuf4u"]
+[ext_resource type="Texture2D" uid="uid://b7v8smlrd1co0" path="res://assets/money.png" id="3_lghbx"]
+[ext_resource type="Script" path="res://scripts/game1/businessman.gd" id="3_u2huu"]
+[ext_resource type="Script" path="res://scripts/game1/player.gd" id="5_oaopn"]
+[ext_resource type="Texture2D" uid="uid://b3rn1trchtld4" path="res://assets/hand.png" id="6_5pb03"]
+[ext_resource type="Texture2D" uid="uid://bj0l4g858p0hb" path="res://assets/alert.png" id="7_y23jp"]
+[ext_resource type="Script" path="res://scripts/game1/alert.gd" id="8_0xje8"]
+[ext_resource type="Texture2D" uid="uid://da6afa4uwks02" path="res://assets/win.png" id="10_b8rrv"]
+[ext_resource type="Script" path="res://scripts/game1/win.gd" id="11_gtns0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hb10l"]
+radius = 88.3629
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy4ya"]
+size = Vector2(64, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ql2"]
+size = Vector2(152, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at1xy"]
+size = Vector2(58, 80)
 
 [node name="Game1" type="Node2D"]
 
+[node name="CityBackground1" type="Sprite2D" parent="."]
+position = Vector2(572, 238)
+scale = Vector2(1.19531, 0.796875)
+texture = ExtResource("1_y438g")
+
+[node name="Businessman" type="Sprite2D" parent="."]
+position = Vector2(984, 400)
+texture = ExtResource("2_uuf4u")
+script = ExtResource("3_u2huu")
+
+[node name="Area2D" type="Area2D" parent="Businessman" groups=["bm"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Businessman/Area2D"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_hb10l")
+
+[node name="Money" type="Sprite2D" parent="Businessman"]
+position = Vector2(0, 24)
+texture = ExtResource("3_lghbx")
+
+[node name="Area2D" type="Area2D" parent="Businessman/Money" groups=["money"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Businessman/Money/Area2D"]
+shape = SubResource("RectangleShape2D_hy4ya")
+
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(144, 400)
+position = Vector2(168, 400)
 texture = ExtResource("1_snhs5")
+script = ExtResource("5_oaopn")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(-14, 0)
+shape = SubResource("RectangleShape2D_27ql2")
+
+[node name="Hand" type="Sprite2D" parent="Player"]
+position = Vector2(120, 40)
+rotation = -0.226893
+texture = ExtResource("6_5pb03")
+
+[node name="Area2D" type="Area2D" parent="Player/Hand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hand/Area2D"]
+position = Vector2(40, -8)
+shape = SubResource("RectangleShape2D_at1xy")
+
+[node name="Alert" type="Sprite2D" parent="."]
+position = Vector2(966, 166)
+scale = Vector2(3.125, 3.1875)
+texture = ExtResource("7_y23jp")
+script = ExtResource("8_0xje8")
+
+[node name="Win" type="Sprite2D" parent="."]
+position = Vector2(552, 288)
+texture = ExtResource("10_b8rrv")
+script = ExtResource("11_gtns0")
 
 [node name="Ground" type="ColorRect" parent="."]
 offset_left = -32.0
@@ -14,3 +90,9 @@ offset_top = 528.0
 offset_right = 1208.0
 offset_bottom = 676.0
 color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[connection signal="seen" from="Businessman" to="Player" method="_on_businessman_seen"]
+[connection signal="lose" from="Player" to="Businessman" method="_on_player_lose"]
+[connection signal="lose" from="Player" to="Alert" method="_on_player_lose"]
+[connection signal="win" from="Player" to="Businessman" method="_on_player_win"]
+[connection signal="win" from="Player" to="Win" method="_on_player_win"]

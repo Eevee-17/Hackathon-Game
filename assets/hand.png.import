@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvbtybocig801"
-path="res://.godot/imported/businessman.png-5f76f161636d40aaf23993ec67e0eab0.ctex"
+uid="uid://b3rn1trchtld4"
+path="res://.godot/imported/hand.png-5390196fb1554350de487a1bb25078ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_scenes/businessman.png"
-dest_files=["res://.godot/imported/businessman.png-5f76f161636d40aaf23993ec67e0eab0.ctex"]
+source_file="res://assets/hand.png"
+dest_files=["res://.godot/imported/hand.png-5390196fb1554350de487a1bb25078ac.ctex"]
 
 [params]
 
