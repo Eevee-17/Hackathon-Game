@@ -46,7 +46,7 @@ func cutscene():
 					$InBetween/Countdown.text = "Countdown: " + str(3 - num) 
 					await get_tree().create_timer(1.0).timeout
 				
-				$Game.start_game($MainControl.hand_it_out, 0)
+				$Game.start_game($MainControl.hand_it_out, money)
 		if selected_game == 1:
 			$InBetween/AudioStreamPlayer.play()
 			
