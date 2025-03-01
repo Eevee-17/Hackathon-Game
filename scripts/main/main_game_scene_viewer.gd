@@ -27,7 +27,7 @@ func end_game():
 
 func start_game(game_scene):
 	in_game = true
-	var scene = game_scene.instantiate()
+	scene = game_scene.instantiate()
 	add_child(scene)
 
 func _on_main_control_start_game(game_scene: Variant) -> void:

@@ -7,7 +7,7 @@ var player_ended = false
 
 func _process(delta):
 	if not player_ended:
-		rotation -= 0.02
+		rotation -= delta
 		
 		if rotation < -3:
 			player_ended = true
@@ -17,6 +17,7 @@ func _process(delta):
 
 func _on_player_lose() -> void:
 	player_ended = true
+	texture = load("res://assets/businessman_spotted.png")
 
 
 func _on_player_win() -> void:

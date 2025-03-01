@@ -9,7 +9,7 @@ func _on_game1_button_pressed() -> void:
 	start_game.emit(game1_scene)
 
 
-func _on_start_game(game_scene: Variant) -> void:
+func _on_start_game(_game_scene: Variant) -> void:
 	for child in $GameButtons.get_children():
 		child.disabled = true
 
