@@ -62,9 +62,9 @@ frame_progress = 0.923987
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 664.0
-offset_top = 528.0
+offset_top = 516.0
 offset_right = 1101.0
-offset_bottom = 672.0
+offset_bottom = 660.0
 text = "Controls:
 Arrow keys: move
 Space bar: Do action
