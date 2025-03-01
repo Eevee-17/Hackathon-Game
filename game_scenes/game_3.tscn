@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwsdgxd6p2tki"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_ky8rs"]
+[ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="2_s2000"]
+[ext_resource type="PackedScene" uid="uid://b18qm3rdyvqh2" path="res://game_scenes/platform.tscn" id="3_1iayr"]
+[ext_resource type="Texture2D" uid="uid://bp2f4tr1hn6jw" path="res://assets/City Background from Gmail.png" id="4_3apfc"]
+[ext_resource type="Texture2D" uid="uid://iy3pt36lxod2" path="res://assets/Kleki Mar 1 2025.png" id="5_i6ii7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8sbg"]
+radius = 35.0571
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg0t6"]
+size = Vector2(370.75, 678.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnqc5"]
+size = Vector2(1448.75, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtcxl"]
+size = Vector2(24.25, 600)
+
+[node name="game3" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ky8rs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(56, 595)
+shape = SubResource("CircleShape2D_q8sbg")
+
+[node name="Player" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(57, 589)
+scale = Vector2(0.0644613, 0.09525)
+texture = ExtResource("2_s2000")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="CityBackgroundFromGmail" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(396, 494)
+scale = Vector2(0.926941, 0.878099)
+texture = ExtResource("4_3apfc")
+
+[node name="AnimatableBody2D" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(566, 388)
+
+[node name="CityBackgroundFromGmail2" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1197, 476)
+scale = Vector2(0.947489, 1.02032)
+texture = ExtResource("4_3apfc")
+
+[node name="AnimatableBody2D2" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(254, 433)
+
+[node name="Camera2D" type="Camera2D" parent="ParallaxBackground"]
+position = Vector2(582, 326)
+
+[node name="AnimatableBody2D3" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(773, 320)
+
+[node name="AnimatableBody2D4" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(529, 217)
+
+[node name="AnimatableBody2D5" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(317, 142)
+
+[node name="AnimatableBody2D6" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(548, 61)
+
+[node name="AnimatableBody2D7" parent="ParallaxBackground" instance=ExtResource("3_1iayr")]
+position = Vector2(810, 23)
+
+[node name="KlekiMar12025" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(827.25, 82.875)
+scale = Vector2(0.0678054, 0.10338)
+texture = ExtResource("5_i6ii7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(10, 193)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1284.38, 321.25)
+shape = SubResource("RectangleShape2D_tg0t6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(719.625, 465)
+shape = SubResource("RectangleShape2D_vnqc5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12, 344)
+shape = SubResource("RectangleShape2D_jtcxl")
