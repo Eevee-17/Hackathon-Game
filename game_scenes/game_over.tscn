@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmmw8po51hw6m"]
+[gd_scene load_steps=5 format=3 uid="uid://dmmw8po51hw6m"]
 
+[ext_resource type="Script" path="res://scripts/gameover/game_over.gd" id="1_l8nsh"]
 [ext_resource type="Texture2D" uid="uid://culu3wjqrmyn7" path="res://assets/gameover_screen.png" id="1_ulucb"]
+[ext_resource type="Texture2D" uid="uid://b0n8puv7aj40w" path="res://assets/retry_button.png" id="2_obgj6"]
+[ext_resource type="Texture2D" uid="uid://mfcd6r2y4fln" path="res://assets/retry_button_pressed.png" id="3_ph37r"]
 
 [node name="GameOver" type="Node2D"]
+script = ExtResource("1_l8nsh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -12,3 +16,13 @@ color = Color(0.271898, 2.51182e-07, 8.42288e-08, 1)
 [node name="Text" type="Sprite2D" parent="."]
 position = Vector2(576, 328)
 texture = ExtResource("1_ulucb")
+
+[node name="RetryButton" type="TextureButton" parent="."]
+offset_left = 448.0
+offset_top = 448.0
+offset_right = 704.0
+offset_bottom = 512.0
+texture_normal = ExtResource("2_obgj6")
+texture_pressed = ExtResource("3_ph37r")
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
