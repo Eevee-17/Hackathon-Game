@@ -7,6 +7,8 @@ var wait = false
 
 
 #func _ready() -> void:
+	#await get_tree().create_timer(5.0).timeout
+	#print("done")
 	#var man = man_scene.instantiate()
 	#man.set_type(0)
 	#add_child(man)
@@ -19,7 +21,7 @@ func _process(delta: float) -> void:
 		
 		var man = man_scene.instantiate()
 		man.position.x = 96 + 192 * place
-		var man_type = randi_range(0,5)
+		var man_type = randi_range(0,4)
 		if man_type != 0:
 			man_type = 1
 		man.set_type(man_type)

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-signal give(spot)
+signal give(is_business_man)
 
 @export var left_walk_texture = preload("res://assets/player_back_1.png")
 @export var right_walk_texture = preload("res://assets/player_back_2.png")
@@ -19,16 +19,25 @@ func change_walk_state():
 
 func _ready() -> void:
 	change_walk_state()
+	$Boom.hide()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		$Area2D.add_to_group("ready_to_give")
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.1).timeout
 		$Area2D.remove_from_group("ready_to_give")
-		give.emit(place)
+		
+		var gave_to_businessman = false
+		for area in $Area2D.get_overlapping_areas():
+			if area.is_in_group("bm"):
+				gave_to_businessman = true
+				$Boom.show()
+		give.emit(gave_to_businessman)
+
 	if Input.is_action_just_pressed("arrow_left"):
 		place -= 1
 		change_walk_state()
+
 	if Input.is_action_just_pressed("arrow_right"):
 		place += 1
 		change_walk_state()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfq8kxpsgfsv1"]
+[gd_scene load_steps=5 format=3 uid="uid://bfq8kxpsgfsv1"]
 
 [ext_resource type="Script" path="res://scripts/main/main_control.gd" id="1_77ij5"]
 [ext_resource type="Script" path="res://scripts/main/main_game_scene_viewer.gd" id="2_0opfk"]
 [ext_resource type="PackedScene" uid="uid://bcniq3wmj70ku" path="res://game_scenes/game_1.tscn" id="2_qx2s6"]
+[ext_resource type="PackedScene" uid="uid://ck6ir7n1qnxa8" path="res://game_scenes/hand_it_out_1.tscn" id="3_58pc7"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,19 +14,28 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_77ij5")
 game1_scene = ExtResource("2_qx2s6")
+hand_it_out = ExtResource("3_58pc7")
 
 [node name="GameButtons" type="Control" parent="MainControl"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="MainControl/GameButtons"]
+[node name="Game1Button" type="Button" parent="MainControl/GameButtons"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 112.0
 offset_right = 107.0
 offset_bottom = 143.0
 text = "Game 1"
+
+[node name="HandItOutButton" type="Button" parent="MainControl/GameButtons"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 120.0
+offset_right = 247.0
+offset_bottom = 151.0
+text = "Hand it out"
 
 [node name="Info" type="TextEdit" parent="MainControl"]
 layout_mode = 0
@@ -40,5 +50,6 @@ script = ExtResource("2_0opfk")
 
 [connection signal="start_game" from="MainControl" to="MainControl" method="_on_start_game"]
 [connection signal="start_game" from="MainControl" to="Game" method="_on_main_control_start_game"]
-[connection signal="pressed" from="MainControl/GameButtons/Button" to="MainControl" method="_on_game1_button_pressed"]
+[connection signal="pressed" from="MainControl/GameButtons/Game1Button" to="MainControl" method="_on_game1_button_pressed"]
+[connection signal="pressed" from="MainControl/GameButtons/HandItOutButton" to="MainControl" method="_on_hand_it_out_button_pressed"]
 [connection signal="game_ended" from="Game" to="MainControl" method="_on_game_game_ended"]

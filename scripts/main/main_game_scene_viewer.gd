@@ -9,12 +9,13 @@ var game_counter = 0
 var lives = 4
 
 
-func lost_game():
+func lost_game(amount):
 	lives -= 1
+	money += amount
 	end_game()
 
-func won_game():
-	money += 1
+func won_game(amount):
+	money += amount
 	end_game()
 
 func end_game():
@@ -25,10 +26,12 @@ func end_game():
 	
 	game_ended.emit(game_counter, money, lives)
 
-func start_game(game_scene):
+func start_game(game_scene, input):
 	in_game = true
 	scene = game_scene.instantiate()
 	add_child(scene)
+	scene.start_game(input)
 
 func _on_main_control_start_game(game_scene: Variant) -> void:
-	start_game(game_scene)
+	if money > 0:
+		start_game(game_scene, money)

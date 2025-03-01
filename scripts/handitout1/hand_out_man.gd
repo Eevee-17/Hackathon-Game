@@ -8,6 +8,7 @@ func set_type(new_type):
 	type = new_type
 	if type == 0:
 		$Man.texture = load("res://assets/businessman_wants_money.png")
+		$Man/Area2D.add_to_group("bm")
 	elif type == 1:
 		$Man.texture = load("res://assets/homeless.png")
 	else:
@@ -20,7 +21,7 @@ func _process(delta: float) -> void:
 	for area in $Man/Area2D.get_overlapping_areas():
 		if type == 1 and area.is_in_group("ready_to_give"):
 			set_type(2)
-			print(":)")
+			#print(":)")
 	
 	if position.y > 700:
 		queue_free()
