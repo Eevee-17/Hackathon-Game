@@ -1,16 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck6ir7n1qnxa8"]
+[gd_scene load_steps=6 format=3 uid="uid://ck6ir7n1qnxa8"]
 
+[ext_resource type="Texture2D" uid="uid://huccm7m81kdq" path="res://assets/hand_it_out_background.png" id="1_b62qd"]
 [ext_resource type="Script" path="res://scripts/handitout1/spawner.gd" id="1_rau5c"]
 [ext_resource type="Script" path="res://scripts/handitout1/player.gd" id="2_4nnef"]
 [ext_resource type="PackedScene" uid="uid://bl8a28dif8sdv" path="res://game_scenes/hand_out_man.tscn" id="2_qn6xn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olvx7"]
-size = Vector2(409.058, 739.461)
+size = Vector2(409.058, 219.099)
 
 [node name="HandItOut1" type="Node2D"]
 
+[node name="HandItOutBackground" type="Sprite2D" parent="." groups=["ready_to_give"]]
+position = Vector2(576, 324)
+scale = Vector2(0.819346, 0.832905)
+texture = ExtResource("1_b62qd")
+
+[node name="Men" type="Node2D" parent="."]
+
 [node name="Spawner" type="Node2D" parent="."]
-position = Vector2(96, 0)
+position = Vector2(96, -128)
 script = ExtResource("1_rau5c")
 man_scene = ExtResource("2_qn6xn")
 
@@ -22,5 +30,5 @@ script = ExtResource("2_4nnef")
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2(-13.6353, 13.6938)
+position = Vector2(-13.6353, 0.00012207)
 shape = SubResource("RectangleShape2D_olvx7")

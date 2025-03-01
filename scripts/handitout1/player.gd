@@ -13,7 +13,7 @@ func change_walk_state():
 	if walk_state == 0:
 		walk_state = 1
 		texture = left_walk_texture
-	if walk_state == 1:
+	elif walk_state == 1:
 		walk_state = 0
 		texture = right_walk_texture
 
