@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcniq3wmj70ku"]
+[gd_scene load_steps=17 format=3 uid="uid://bcniq3wmj70ku"]
 
+[ext_resource type="Script" path="res://scripts/game1/game_1_control.gd" id="1_irv6p"]
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="1_snhs5"]
 [ext_resource type="Texture2D" uid="uid://leixa2iyhdkt" path="res://assets/city_background_1.png" id="1_y438g"]
 [ext_resource type="Texture2D" uid="uid://c6mj3b8ggjgif" path="res://assets/businessman.png" id="2_uuf4u"]
@@ -25,6 +26,7 @@ size = Vector2(152, 240)
 size = Vector2(58, 80)
 
 [node name="Game1" type="Node2D"]
+script = ExtResource("1_irv6p")
 
 [node name="CityBackground1" type="Sprite2D" parent="."]
 position = Vector2(572, 238)
@@ -92,7 +94,9 @@ offset_bottom = 676.0
 color = Color(0.205117, 0.205117, 0.205117, 1)
 
 [connection signal="seen" from="Businessman" to="Player" method="_on_businessman_seen"]
+[connection signal="lose" from="Player" to="." method="_on_player_lose"]
 [connection signal="lose" from="Player" to="Businessman" method="_on_player_lose"]
 [connection signal="lose" from="Player" to="Alert" method="_on_player_lose"]
+[connection signal="win" from="Player" to="." method="_on_player_win"]
 [connection signal="win" from="Player" to="Businessman" method="_on_player_win"]
 [connection signal="win" from="Player" to="Win" method="_on_player_win"]

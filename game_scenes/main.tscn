@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfq8kxpsgfsv1"]
+
+[ext_resource type="Script" path="res://scripts/main/main_control.gd" id="1_77ij5"]
+[ext_resource type="Script" path="res://scripts/main/main_game_scene_viewer.gd" id="2_0opfk"]
+[ext_resource type="PackedScene" uid="uid://bcniq3wmj70ku" path="res://game_scenes/game_1.tscn" id="2_qx2s6"]
+
+[node name="Main" type="Node2D"]
+
+[node name="MainControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_77ij5")
+game1_scene = ExtResource("2_qx2s6")
+
+[node name="GameButtons" type="Control" parent="MainControl"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="MainControl/GameButtons"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 91.0
+offset_bottom = 127.0
+text = "Game 1"
+
+[node name="Info" type="TextEdit" parent="MainControl"]
+layout_mode = 0
+offset_right = 152.0
+offset_bottom = 64.0
+text = "Games done: 0
+Money: 0"
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("2_0opfk")
+
+[connection signal="start_game" from="MainControl" to="MainControl" method="_on_start_game"]
+[connection signal="start_game" from="MainControl" to="Game" method="_on_main_control_start_game"]
+[connection signal="pressed" from="MainControl/GameButtons/Button" to="MainControl" method="_on_game1_button_pressed"]
+[connection signal="game_ended" from="Game" to="MainControl" method="_on_game_game_ended"]
