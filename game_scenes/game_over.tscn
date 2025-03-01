@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmmw8po51hw6m"]
+
+[ext_resource type="Texture2D" uid="uid://culu3wjqrmyn7" path="res://assets/gameover_screen.png" id="1_ulucb"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.271898, 2.51182e-07, 8.42288e-08, 1)
+
+[node name="Text" type="Sprite2D" parent="."]
+position = Vector2(576, 328)
+texture = ExtResource("1_ulucb")

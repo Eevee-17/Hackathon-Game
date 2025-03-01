@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfq8kxpsgfsv1"]
+[gd_scene load_steps=9 format=3 uid="uid://bfq8kxpsgfsv1"]
 
 [ext_resource type="Script" path="res://scripts/main/main_control.gd" id="1_77ij5"]
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_beady"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ck6ir7n1qnxa8" path="res://game_scenes/hand_it_out_1.tscn" id="3_58pc7"]
 [ext_resource type="PackedScene" uid="uid://djklqmay2rsb8" path="res://shaders/InBetween/in_between.tscn" id="6_2drld"]
 [ext_resource type="PackedScene" uid="uid://bvi2w130f5pgh" path="res://game_scenes/title_screen.tscn" id="6_3n6it"]
+[ext_resource type="PackedScene" uid="uid://dmmw8po51hw6m" path="res://game_scenes/game_over.tscn" id="8_ofkxq"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_beady")
@@ -57,6 +58,8 @@ script = ExtResource("2_0opfk")
 [node name="InBetween" parent="." instance=ExtResource("6_2drld")]
 
 [node name="TitleScreen" parent="." instance=ExtResource("6_3n6it")]
+
+[node name="GameOver" parent="." instance=ExtResource("8_ofkxq")]
 
 [connection signal="start_game" from="MainControl" to="MainControl" method="_on_start_game"]
 [connection signal="start_game" from="MainControl" to="Game" method="_on_main_control_start_game"]
