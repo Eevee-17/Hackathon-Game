@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://djklqmay2rsb8"]
+
+[ext_resource type="Shader" path="res://shaders/InBetween/heart.gdshader" id="1_1r5mx"]
+[ext_resource type="Texture2D" uid="uid://d1rif7g258e8n" path="res://assets/heart.png" id="2_k1r3x"]
+[ext_resource type="Texture2D" uid="uid://dxts7yabrnvh0" path="res://assets/coin.png" id="3_ieusf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6jwn"]
+shader = ExtResource("1_1r5mx")
+shader_parameter/bounce_amount = 40.0
+shader_parameter/bounce_time = 3.0
+
+[node name="InBetween" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_top = 192.0
+offset_right = 1152.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 80
+
+[node name="Countdown" type="Label" parent="."]
+offset_left = 528.0
+offset_right = 1155.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 2
+
+[node name="Hearts" type="Node2D" parent="."]
+
+[node name="Heart1" type="Sprite2D" parent="Hearts"]
+material = SubResource("ShaderMaterial_r6jwn")
+position = Vector2(192, 512)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_k1r3x")
+
+[node name="Heart2" type="Sprite2D" parent="Hearts"]
+material = SubResource("ShaderMaterial_r6jwn")
+position = Vector2(448, 512)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_k1r3x")
+
+[node name="Heart3" type="Sprite2D" parent="Hearts"]
+material = SubResource("ShaderMaterial_r6jwn")
+position = Vector2(704, 512)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_k1r3x")
+
+[node name="Heart4" type="Sprite2D" parent="Hearts"]
+material = SubResource("ShaderMaterial_r6jwn")
+position = Vector2(960, 512)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_k1r3x")
+
+[node name="MoneyDisplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="MoneyDisplay"]
+layout_mode = 0
+offset_right = 397.0
+offset_bottom = 415.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ieusf")
+
+[node name="MoneyAmount" type="Label" parent="MoneyDisplay"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 400.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 80
