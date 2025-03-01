@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcniq3wmj70ku"]
+
+[ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="1_snhs5"]
+
+[node name="Game1" type="Node2D"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(144, 400)
+texture = ExtResource("1_snhs5")
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = 528.0
+offset_right = 1208.0
+offset_bottom = 676.0
+color = Color(0.205117, 0.205117, 0.205117, 1)
