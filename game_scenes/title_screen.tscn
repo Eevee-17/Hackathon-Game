@@ -55,4 +55,18 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.923987
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 528.0
+offset_right = 1101.0
+offset_bottom = 672.0
+text = "Controls:
+Arrow keys: move
+Space bar: Do action
+
+Note: part of the fun is figuring it all out on your own!"
+horizontal_alignment = 2
+autowrap_mode = 2
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
