@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvi2w130f5pgh"]
+[gd_scene load_steps=8 format=3 uid="uid://bvi2w130f5pgh"]
 
 [ext_resource type="Script" path="res://scripts/titlescreen/title_screen.gd" id="1_lnef5"]
 [ext_resource type="Texture2D" uid="uid://bt514jmt2v1ua" path="res://assets/start_button.png" id="1_ujoyo"]
+[ext_resource type="Texture2D" uid="uid://pe6rhh2oe4xd" path="res://assets/title_background.png" id="2_1ktc4"]
 [ext_resource type="Texture2D" uid="uid://ckl740lahguci" path="res://assets/start_button_pressed.png" id="2_63a4v"]
-[ext_resource type="Texture2D" uid="uid://bldsixbnx48o2" path="res://assets/title.png" id="4_kqh4m"]
+[ext_resource type="Texture2D" uid="uid://c5kawlpfphax1" path="res://assets/title_1.png" id="4_gx7ge"]
+[ext_resource type="Texture2D" uid="uid://bcij7b8un2q1q" path="res://assets/title_2.png" id="5_43wxy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rx5vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gx7ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_43wxy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -14,18 +30,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lnef5")
 
+[node name="TitleBackround" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 1152.0
+offset_bottom = 661.0
+texture = ExtResource("2_1ktc4")
+
 [node name="StartButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 341.0
-offset_right = 1244.0
-offset_bottom = 1087.0
+offset_left = 96.0
+offset_top = 352.0
+offset_right = 1212.0
+offset_bottom = 1098.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("1_ujoyo")
 texture_pressed = ExtResource("2_63a4v")
 
-[node name="Title" type="Sprite2D" parent="."]
-position = Vector2(541, 185)
-texture = ExtResource("4_kqh4m")
+[node name="Title" type="AnimatedSprite2D" parent="."]
+position = Vector2(760, 184)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_rx5vm")
+autoplay = "default"
+frame = 1
+frame_progress = 0.923987
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
