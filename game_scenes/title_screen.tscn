@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://csbrjkj5itgjf"]
+
+[ext_resource type="Script" path="res://scripts/titlescreen/title_screen.gd" id="1_lnef5"]
+[ext_resource type="Texture2D" uid="uid://bt514jmt2v1ua" path="res://assets/start_button.png" id="1_ujoyo"]
+[ext_resource type="Texture2D" uid="uid://ckl740lahguci" path="res://assets/start_button_pressed.png" id="2_63a4v"]
+[ext_resource type="Texture2D" uid="uid://bldsixbnx48o2" path="res://assets/title.png" id="4_kqh4m"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lnef5")
+
+[node name="StartButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 341.0
+offset_right = 1244.0
+offset_bottom = 1087.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("1_ujoyo")
+texture_pressed = ExtResource("2_63a4v")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(541, 185)
+texture = ExtResource("4_kqh4m")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
