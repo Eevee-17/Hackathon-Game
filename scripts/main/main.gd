@@ -48,6 +48,8 @@ func cutscene():
 				
 				$Game.start_game($MainControl.hand_it_out, 0)
 		if selected_game == 1:
+			$InBetween/AudioStreamPlayer.play()
+			
 			$InBetween/Label.text = "Steal from the rich businessman!"
 			
 			for num in range(3):
@@ -55,10 +57,12 @@ func cutscene():
 				await get_tree().create_timer(1.0).timeout
 			
 			$Game.start_game($MainControl.game1_scene, 0)
+			$GameBackgroundMusic.play()
 		
 		$InBetween.hide()
 	else:
 		$GameOver.show()
 
 func _on_game_game_ended(game_num: Variant, money_val: Variant, lives_left: Variant) -> void:
+	$GameBackgroundMusic.stop()
 	cutscene()
