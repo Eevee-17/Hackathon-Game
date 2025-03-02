@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://ck6ir7n1qnxa8"]
 
-[ext_resource type="Script" path="res://scripts/handitout1/hand_it_out_1.gd" id="1_0oxqi"]
+[ext_resource type="Script" path="res://scripts/hand_it_out/hand_it_out_1.gd" id="1_0oxqi"]
 [ext_resource type="Texture2D" uid="uid://huccm7m81kdq" path="res://assets/hand_it_out_background.png" id="1_b62qd"]
-[ext_resource type="Script" path="res://scripts/handitout1/spawner.gd" id="1_rau5c"]
-[ext_resource type="Script" path="res://scripts/handitout1/player.gd" id="2_4nnef"]
-[ext_resource type="PackedScene" uid="uid://bl8a28dif8sdv" path="res://game_scenes/hand_out_man.tscn" id="2_qn6xn"]
+[ext_resource type="Script" path="res://scripts/hand_it_out/spawner.gd" id="1_rau5c"]
+[ext_resource type="Script" path="res://scripts/hand_it_out/player.gd" id="2_4nnef"]
+[ext_resource type="PackedScene" uid="uid://bl8a28dif8sdv" path="res://object_scenes/hand_it_out/man.tscn" id="2_qn6xn"]
 [ext_resource type="Texture2D" uid="uid://ci0p11iu4q2sq" path="res://assets/boom.png" id="6_mud7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olvx7"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwsdgxd6p2tki"]
+[gd_scene load_steps=13 format=3 uid="uid://cwsdgxd6p2tki"]
 
 [ext_resource type="Script" path="res://scripts/game3/character_body_2d.gd" id="1_ky8rs"]
 [ext_resource type="Script" path="res://scripts/game3/game_3_control.gd" id="1_tbpqs"]
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="2_s2000"]
-[ext_resource type="PackedScene" uid="uid://b18qm3rdyvqh2" path="res://game_scenes/platform.tscn" id="3_1iayr"]
+[ext_resource type="PackedScene" uid="uid://b18qm3rdyvqh2" path="res://object_scenes/game3/platform.tscn" id="3_1iayr"]
 [ext_resource type="Texture2D" uid="uid://bp2f4tr1hn6jw" path="res://assets/city_background_3.png" id="4_3apfc"]
 [ext_resource type="Texture2D" uid="uid://iy3pt36lxod2" path="res://assets/flag.png" id="5_i6ii7"]
+[ext_resource type="PackedScene" uid="uid://oj1pjnm72i52" path="res://object_scenes/coin.tscn" id="7_dnttq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8sbg"]
 radius = 35.0571
@@ -25,6 +26,20 @@ size = Vector2(24.25, 600)
 [node name="game3" type="Node2D"]
 script = ExtResource("1_tbpqs")
 
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("7_dnttq")]
+position = Vector2(290, 392)
+scale = Vector2(0.1, 0.1)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("7_dnttq")]
+position = Vector2(692, 288)
+scale = Vector2(0.1, 0.1)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("7_dnttq")]
+position = Vector2(346, 106)
+scale = Vector2(0.1, 0.1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ky8rs")
 
@@ -36,6 +51,12 @@ shape = SubResource("CircleShape2D_q8sbg")
 position = Vector2(57, 589)
 scale = Vector2(0.0644613, 0.09525)
 texture = ExtResource("2_s2000")
+
+[node name="DetectionArea" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DetectionArea"]
+position = Vector2(56, 595)
+shape = SubResource("CircleShape2D_q8sbg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -100,4 +121,5 @@ position = Vector2(-12, 344)
 shape = SubResource("RectangleShape2D_jtcxl")
 
 [connection signal="win" from="CharacterBody2D" to="." method="_on_character_body_2d_win"]
+[connection signal="area_entered" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="ParallaxBackground/KlekiMar12025/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

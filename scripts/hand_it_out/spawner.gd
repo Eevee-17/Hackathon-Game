@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var man_scene = load("res://game_scenes/hand_out_man.tscn")
+@export var man_scene = load("res://object_scenes/hand_it_out/man.tscn")
 
 var place = 0
 var wait = false

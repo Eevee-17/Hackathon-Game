@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://oj1pjnm72i52"]
+
+[ext_resource type="Shader" path="res://shaders/coin.gdshader" id="1_cyrcm"]
+[ext_resource type="Texture2D" uid="uid://dxts7yabrnvh0" path="res://assets/coin.png" id="1_v7hgs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umer0"]
+shader = ExtResource("1_cyrcm")
+shader_parameter/float_amount = 40.0
+shader_parameter/float_time = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fompc"]
+shader = ExtResource("1_cyrcm")
+shader_parameter/float_amount = 10.0
+shader_parameter/float_time = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi4yu"]
+size = Vector2(288, 352)
+
+[node name="Coin" type="Area2D" groups=["coin"]]
+material = SubResource("ShaderMaterial_umer0")
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fompc")
+texture = ExtResource("1_v7hgs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, -16)
+shape = SubResource("RectangleShape2D_vi4yu")
