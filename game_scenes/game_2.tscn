@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drvea3u65phfb"]
 
-[ext_resource type="Texture2D" uid="uid://bn53vi8ain22r" path="res://assets/Game Background.png" id="1_o2mch"]
-[ext_resource type="Script" path="res://game_scenes/character_body_2d.gd" id="2_smirt"]
+[ext_resource type="Texture2D" uid="uid://bn53vi8ain22r" path="res://assets/arcade_machine.png" id="1_o2mch"]
+[ext_resource type="Script" path="res://scripts/game2/character_body_2d.gd" id="2_smirt"]
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="3_l0sqs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ip4px"]

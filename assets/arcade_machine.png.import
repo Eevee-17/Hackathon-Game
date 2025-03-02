@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn53vi8ain22r"
-path="res://.godot/imported/Game Background.png-ef146d42717f23094551d54d96deeb52.ctex"
+path="res://.godot/imported/arcade_machine.png-db6ffa32c7a295080e9e97fef32c9f6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Game Background.png"
-dest_files=["res://.godot/imported/Game Background.png-ef146d42717f23094551d54d96deeb52.ctex"]
+source_file="res://assets/arcade_machine.png"
+dest_files=["res://.godot/imported/arcade_machine.png-db6ffa32c7a295080e9e97fef32c9f6e.ctex"]
 
 [params]
 

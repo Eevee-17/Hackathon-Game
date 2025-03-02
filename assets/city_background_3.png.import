@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sy8kygfnplgs"
-path="res://.godot/imported/City Background from Gmail.png-b58f46678b08f21505019a8e60ebe452.ctex"
+uid="uid://bp2f4tr1hn6jw"
+path="res://.godot/imported/city_background_3.png-8e05b788075d4a7e5287b01fa1451da6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://City Background from Gmail.png"
-dest_files=["res://.godot/imported/City Background from Gmail.png-b58f46678b08f21505019a8e60ebe452.ctex"]
+source_file="res://assets/city_background_3.png"
+dest_files=["res://.godot/imported/city_background_3.png-8e05b788075d4a7e5287b01fa1451da6.ctex"]
 
 [params]
 

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/main/main_game_scene_viewer.gd" id="2_0opfk"]
 [ext_resource type="PackedScene" uid="uid://bcniq3wmj70ku" path="res://game_scenes/game_1.tscn" id="2_qx2s6"]
 [ext_resource type="PackedScene" uid="uid://ck6ir7n1qnxa8" path="res://game_scenes/hand_it_out_1.tscn" id="3_58pc7"]
-[ext_resource type="PackedScene" uid="uid://djklqmay2rsb8" path="res://shaders/InBetween/in_between.tscn" id="6_2drld"]
+[ext_resource type="PackedScene" uid="uid://djklqmay2rsb8" path="res://game_scenes/in_between.tscn" id="6_2drld"]
 [ext_resource type="PackedScene" uid="uid://bvi2w130f5pgh" path="res://game_scenes/title_screen.tscn" id="6_3n6it"]
 [ext_resource type="PackedScene" uid="uid://dmmw8po51hw6m" path="res://game_scenes/game_over.tscn" id="8_ofkxq"]
 
@@ -64,6 +64,7 @@ script = ExtResource("2_0opfk")
 [node name="TitleScreen" parent="." instance=ExtResource("6_3n6it")]
 
 [node name="GameOver" parent="." instance=ExtResource("8_ofkxq")]
+visible = false
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_0j0cm")

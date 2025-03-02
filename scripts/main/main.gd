@@ -40,6 +40,8 @@ func cutscene():
 			if money < 3:
 				selected_game = 1
 			else:
+				$InBetween/AudioStreamPlayer.play()
+			
 				$InBetween/Label.text = "Give to the homeless!"
 				
 				for num in range(3):
@@ -47,6 +49,7 @@ func cutscene():
 					await get_tree().create_timer(1.0).timeout
 				
 				$Game.start_game($MainControl.hand_it_out, money)
+				$GameBackgroundMusic.play()
 		if selected_game == 1:
 			$InBetween/AudioStreamPlayer.play()
 			

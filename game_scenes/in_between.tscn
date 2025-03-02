@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://djklqmay2rsb8"]
 
-[ext_resource type="Shader" path="res://shaders/InBetween/heart.gdshader" id="1_1r5mx"]
+[ext_resource type="Shader" path="res://shaders/in_between/heart.gdshader" id="1_1r5mx"]
 [ext_resource type="Texture2D" uid="uid://pghngywgyraa" path="res://assets/in_between_background_1.png" id="1_sbcvh"]
 [ext_resource type="Texture2D" uid="uid://t2deivqjxwm0" path="res://assets/in_between_background_2.png" id="2_h32v5"]
 [ext_resource type="Texture2D" uid="uid://d1rif7g258e8n" path="res://assets/heart.png" id="2_k1r3x"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://cwsdgxd6p2tki"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_ky8rs"]
+[ext_resource type="Script" path="res://scripts/game3/character_body_2d.gd" id="1_ky8rs"]
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="2_s2000"]
 [ext_resource type="PackedScene" uid="uid://b18qm3rdyvqh2" path="res://game_scenes/platform.tscn" id="3_1iayr"]
-[ext_resource type="Texture2D" uid="uid://bp2f4tr1hn6jw" path="res://assets/City Background from Gmail.png" id="4_3apfc"]
-[ext_resource type="Texture2D" uid="uid://iy3pt36lxod2" path="res://assets/Kleki Mar 1 2025.png" id="5_i6ii7"]
+[ext_resource type="Texture2D" uid="uid://bp2f4tr1hn6jw" path="res://assets/city_background_3.png" id="4_3apfc"]
+[ext_resource type="Texture2D" uid="uid://iy3pt36lxod2" path="res://assets/flag.png" id="5_i6ii7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8sbg"]
 radius = 35.0571
@@ -80,7 +80,6 @@ texture = ExtResource("5_i6ii7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/KlekiMar12025/Area2D"]
 position = Vector2(11.0609, -240.617)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i6koj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
