@@ -11,7 +11,7 @@ func start_game(money_val):
 
 func _on_player_give(is_business_man: Variant) -> void:
 	if is_business_man:
-		#await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		get_parent().lost_game(-start_money)
 	else:
 		money -= 1
