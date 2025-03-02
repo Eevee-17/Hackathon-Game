@@ -65,6 +65,7 @@ func cutscene():
 		$InBetween.hide()
 	else:
 		$GameOver.show()
+		$GameOver/AudioStreamPlayer.play()
 
 func _on_game_game_ended(game_num: Variant, money_val: Variant, lives_left: Variant) -> void:
 	$GameBackgroundMusic.stop()
