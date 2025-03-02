@@ -51,10 +51,11 @@ func cutscene():
 		
 		$InBetween/MoneyDisplay/MoneyAmount.text = str(money)
 		
-		var selected_game = randi_range(0,2)
+		var max_game_val = 2
+		var selected_game = randi_range(0, max_game_val)
 		if selected_game == 0:
-			if money <= 0:
-				selected_game = 1
+			if money <= 5:
+				selected_game = randi_range(1, max_game_val)
 			else:
 				play_game(hand_it_out_1_scene, money, "Give to the homeless!")
 		if selected_game == 0:
