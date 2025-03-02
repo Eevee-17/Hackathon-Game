@@ -17,6 +17,20 @@ func _ready() -> void:
 	$InBetween.hide()
 	$GameOver.hide()
 
+func play_game(game, game_input, game_text):
+	$InBetween/AudioStreamPlayer.play()
+	
+	$InBetween/Label.text = game_text
+	
+	for num in range(3):
+		$InBetween/Countdown.text = "Countdown: " + str(3 - num) 
+		await get_tree().create_timer(1.0).timeout
+	
+	$Game.start_game(game, game_input)
+	$GameBackgroundMusic.play()
+	
+	$InBetween.hide()
+
 func cutscene():
 	lives = $Game.lives
 	money = $Game.money
@@ -40,29 +54,11 @@ func cutscene():
 			if money < 3:
 				selected_game = 1
 			else:
-				$InBetween/AudioStreamPlayer.play()
-			
-				$InBetween/Label.text = "Give to the homeless!"
-				
-				for num in range(3):
-					$InBetween/Countdown.text = "Countdown: " + str(3 - num) 
-					await get_tree().create_timer(1.0).timeout
-				
-				$Game.start_game($MainControl.hand_it_out, money)
-				$GameBackgroundMusic.play()
+				play_game($MainControl.hand_it_out, money, "Give to the homeless!")
 		if selected_game == 1:
-			$InBetween/AudioStreamPlayer.play()
-			
-			$InBetween/Label.text = "Steal from the rich businessman!"
-			
-			for num in range(3):
-				$InBetween/Countdown.text = "Countdown: " + str(3 - num) 
-				await get_tree().create_timer(1.0).timeout
-			
-			$Game.start_game($MainControl.game1_scene, 0)
-			$GameBackgroundMusic.play()
+			play_game($MainControl.game1_scene, 0, "Steal from the rich businessman!")
 		
-		$InBetween.hide()
+		
 	else:
 		$GameOver.show()
 		$GameOver/AudioStreamPlayer.play()
