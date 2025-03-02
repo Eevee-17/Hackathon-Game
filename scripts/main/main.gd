@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var game1_scene = load("res://game_scenes/game_1.tscn")
+@export var hand_it_out_1_scene = load("res://game_scenes/hand_it_out_1.tscn")
+
 var lives
 var money
 var game_counter = 0
@@ -7,13 +10,11 @@ var game_counter = 0
 
 func start():
 	$TitleScreen.hide()
-	#$MainControl.show()
 	lives = $Game.lives
 	money = $Game.money
 	cutscene()
 
 func _ready() -> void:
-	$MainControl.hide()
 	$InBetween.hide()
 	$GameOver.hide()
 
@@ -54,9 +55,9 @@ func cutscene():
 			if money < 3:
 				selected_game = 1
 			else:
-				play_game($MainControl.hand_it_out, money, "Give to the homeless!")
+				play_game(hand_it_out_1_scene, money, "Give to the homeless!")
 		if selected_game == 1:
-			play_game($MainControl.game1_scene, 0, "Steal from the rich businessman!")
+			play_game(game1_scene, 0, "Steal from the rich businessman!")
 		
 		
 	else:
