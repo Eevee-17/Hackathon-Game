@@ -2,6 +2,7 @@ extends Node2D
 
 @export var game1_scene = load("res://game_scenes/game_1.tscn")
 @export var hand_it_out_1_scene = load("res://game_scenes/hand_it_out_1.tscn")
+@export var game3_scene = load("res://game_scenes/game_3.tscn")
 
 var lives
 var money
@@ -50,15 +51,18 @@ func cutscene():
 		
 		$InBetween/MoneyDisplay/MoneyAmount.text = str(money)
 		
-		var selected_game = randi_range(0,1)
+		var selected_game = randi_range(0,2)
 		if selected_game == 0:
 			if money < 3:
 				selected_game = 1
 			else:
 				play_game(hand_it_out_1_scene, money, "Give to the homeless!")
-		if selected_game == 1:
+		if selected_game == 0:
+			pass # if game 0 failed
+		elif selected_game == 1:
 			play_game(game1_scene, 0, "Steal from the rich businessman!")
-		
+		elif selected_game == 2: # game 3 (still need to finish and implement game 2)
+			play_game(game3_scene, 0, "Scale the city!")
 		
 	else:
 		$GameOver.show()

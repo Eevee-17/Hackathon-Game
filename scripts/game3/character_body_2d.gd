@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal win
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
@@ -23,3 +24,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == get_node("."):
+		win.emit()

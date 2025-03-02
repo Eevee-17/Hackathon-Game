@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwsdgxd6p2tki"]
+[gd_scene load_steps=12 format=3 uid="uid://cwsdgxd6p2tki"]
 
 [ext_resource type="Script" path="res://scripts/game3/character_body_2d.gd" id="1_ky8rs"]
+[ext_resource type="Script" path="res://scripts/game3/game_3_control.gd" id="1_tbpqs"]
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="2_s2000"]
 [ext_resource type="PackedScene" uid="uid://b18qm3rdyvqh2" path="res://game_scenes/platform.tscn" id="3_1iayr"]
 [ext_resource type="Texture2D" uid="uid://bp2f4tr1hn6jw" path="res://assets/city_background_3.png" id="4_3apfc"]
@@ -22,6 +23,7 @@ size = Vector2(1448.75, 20)
 size = Vector2(24.25, 600)
 
 [node name="game3" type="Node2D"]
+script = ExtResource("1_tbpqs")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ky8rs")
@@ -96,3 +98,6 @@ shape = SubResource("RectangleShape2D_vnqc5")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-12, 344)
 shape = SubResource("RectangleShape2D_jtcxl")
+
+[connection signal="win" from="CharacterBody2D" to="." method="_on_character_body_2d_win"]
+[connection signal="body_entered" from="ParallaxBackground/KlekiMar12025/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
