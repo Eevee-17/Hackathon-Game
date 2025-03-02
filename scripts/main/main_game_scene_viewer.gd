@@ -19,12 +19,13 @@ func won_game(amount):
 	end_game()
 
 func end_game():
-	in_game = false
-	game_counter += 1
-	for child in get_children():
-		child.queue_free()
-	
-	game_ended.emit(game_counter, money, lives)
+	if in_game:
+		in_game = false
+		game_counter += 1
+		for child in get_children():
+			child.queue_free()
+		
+		game_ended.emit(game_counter, money, lives)
 
 func start_game(game_scene, input):
 	in_game = true
