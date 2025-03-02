@@ -53,7 +53,7 @@ func cutscene():
 		
 		var selected_game = randi_range(0,2)
 		if selected_game == 0:
-			if money < 3:
+			if money <= 0:
 				selected_game = 1
 			else:
 				play_game(hand_it_out_1_scene, money, "Give to the homeless!")
