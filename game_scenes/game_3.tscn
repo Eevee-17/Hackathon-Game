@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwsdgxd6p2tki"]
+[gd_scene load_steps=15 format=3 uid="uid://cwsdgxd6p2tki"]
 
 [ext_resource type="Script" path="res://scripts/game3/character_body_2d.gd" id="1_ky8rs"]
 [ext_resource type="Script" path="res://scripts/game3/game_3_control.gd" id="1_tbpqs"]
 [ext_resource type="Texture2D" uid="uid://dl6aelp15vg8v" path="res://assets/player.png" id="2_s2000"]
 [ext_resource type="PackedScene" uid="uid://b18qm3rdyvqh2" path="res://object_scenes/game3/platform.tscn" id="3_1iayr"]
 [ext_resource type="Texture2D" uid="uid://bp2f4tr1hn6jw" path="res://assets/city_background_3.png" id="4_3apfc"]
+[ext_resource type="Texture2D" uid="uid://ci0p11iu4q2sq" path="res://assets/boom.png" id="4_f7c36"]
 [ext_resource type="Texture2D" uid="uid://iy3pt36lxod2" path="res://assets/flag.png" id="5_i6ii7"]
 [ext_resource type="PackedScene" uid="uid://oj1pjnm72i52" path="res://object_scenes/coin.tscn" id="7_dnttq"]
+[ext_resource type="Texture2D" uid="uid://wyu2fh6old2c" path="res://assets/police_pile.png" id="8_y6kah"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8sbg"]
 radius = 35.0571
@@ -51,6 +53,11 @@ shape = SubResource("CircleShape2D_q8sbg")
 position = Vector2(57, 589)
 scale = Vector2(0.0644613, 0.09525)
 texture = ExtResource("2_s2000")
+
+[node name="Boom" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(58, 607)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_f7c36")
 
 [node name="DetectionArea" type="Area2D" parent="CharacterBody2D"]
 
@@ -109,7 +116,7 @@ shape = SubResource("RectangleShape2D_i6koj")
 position = Vector2(10, 193)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1284.38, 321.25)
+position = Vector2(1284.38, 120)
 shape = SubResource("RectangleShape2D_tg0t6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -117,9 +124,20 @@ position = Vector2(719.625, 465)
 shape = SubResource("RectangleShape2D_vnqc5")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-12, 344)
+position = Vector2(-12, 120)
 shape = SubResource("RectangleShape2D_jtcxl")
 
+[node name="PolicePile" type="Area2D" parent="." groups=["police"]]
+position = Vector2(573, 872)
+
+[node name="Sprite2D" type="Sprite2D" parent="PolicePile"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_y6kah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PolicePile"]
+polygon = PackedVector2Array(600, -280, -37, -197, -590, 222, -590, 400, 600, 400)
+
+[connection signal="lose" from="CharacterBody2D" to="." method="_on_character_body_2d_lose"]
 [connection signal="win" from="CharacterBody2D" to="." method="_on_character_body_2d_win"]
 [connection signal="area_entered" from="CharacterBody2D/DetectionArea" to="CharacterBody2D" method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="ParallaxBackground/KlekiMar12025/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

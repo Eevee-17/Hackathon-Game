@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal win(money)
+signal lose
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
@@ -8,6 +9,9 @@ const JUMP_VELOCITY = -400.0
 var coins = 0
 var has_won = false
 
+
+func _ready() -> void:
+	$Boom.hide()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -40,3 +44,6 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin"):
 		area.queue_free()
 		coins += 1
+	elif area.is_in_group("police"):
+		$Boom.show()
+		lose.emit()

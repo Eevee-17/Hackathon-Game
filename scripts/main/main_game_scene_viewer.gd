@@ -11,7 +11,7 @@ var lives = 4
 
 func lost_game(amount):
 	lives -= 1
-	money += amount
+	money -= amount
 	end_game()
 
 func won_game(amount):
