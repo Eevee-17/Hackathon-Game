@@ -60,7 +60,7 @@ func cutscene():
 				play_game(hand_it_out_1_scene, money, "Give to the homeless!")
 		if selected_game == 0:
 			pass # if game 0 failed
-		elif selected_game == 1:
+		elif selected_game == 1: # game 1
 			play_game(game1_scene, 0, "Steal from the rich businessman!")
 		elif selected_game == 2: # game 3 (still need to finish and implement game 2)
 			play_game(game3_scene, money, "Escape the police!")
