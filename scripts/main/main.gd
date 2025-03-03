@@ -63,7 +63,7 @@ func cutscene():
 		elif selected_game == 1:
 			play_game(game1_scene, 0, "Steal from the rich businessman!")
 		elif selected_game == 2: # game 3 (still need to finish and implement game 2)
-			play_game(game3_scene, 0, "Scale the city!")
+			play_game(game3_scene, money, "Escape the police!")
 		
 	else:
 		$GameOver.show()

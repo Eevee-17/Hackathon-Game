@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 
 func _on_character_body_2d_lose() -> void:
 	await get_tree().create_timer(0.5).timeout
-	get_parent().lost_game(money)
+	get_parent().lost_game(money / 2)
