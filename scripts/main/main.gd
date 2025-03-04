@@ -14,7 +14,7 @@ func start():
 	$TitleScreen.hide()
 	lives = $Game.lives
 	money = $Game.money
-	score = $Game.score
+	score = int($Game.score)
 	cutscene()
 
 func _ready() -> void:
@@ -38,7 +38,7 @@ func play_game(game, game_input, game_text):
 func cutscene():
 	lives = $Game.lives
 	money = $Game.money
-	score = $Game.score
+	score = int($Game.score)
 	
 	$InBetween/Score.text = "Score: " + str(score)
 	
@@ -59,7 +59,7 @@ func cutscene():
 		var max_game_val = 2
 		var selected_game = randi_range(0, max_game_val)
 		if selected_game == 0:
-			if money <= 5:
+			if money < 3:
 				selected_game = randi_range(1, max_game_val)
 			else:
 				play_game(hand_it_out_1_scene, money, "Give to the homeless!")

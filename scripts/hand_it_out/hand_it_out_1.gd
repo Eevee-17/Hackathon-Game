@@ -3,6 +3,7 @@ extends Node2D
 var money = 0
 var start_money = 0
 var successful_handouts = 0
+var time = 1
 
 
 func start_game(money_val):
@@ -10,10 +11,14 @@ func start_game(money_val):
 	money = start_money
 
 
+func _process(delta: float) -> void:
+	time += delta
+
+
 func _on_player_give(is_business_man: Variant, is_successful_handout: Variant) -> void:
 	if is_business_man:
 		await get_tree().create_timer(1.0).timeout
-		get_parent().lost_game(start_money, start_money * 2 / 3)
+		get_parent().lost_game(start_money, start_money * 3 / time)
 	else:
 		money -= 1
 		if is_successful_handout:
