@@ -1,6 +1,6 @@
 extends Sprite2D
 
-signal give(is_business_man)
+signal give(is_business_man, is_successful_handout)
 
 @export var left_walk_texture = preload("res://assets/player_back_1.png")
 @export var right_walk_texture = preload("res://assets/player_back_2.png")
@@ -28,11 +28,14 @@ func _process(delta: float) -> void:
 		$Area2D.remove_from_group("ready_to_give")
 		
 		var gave_to_businessman = false
+		var successful_handout = false
 		for area in $Area2D.get_overlapping_areas():
 			if area.is_in_group("bm"):
 				gave_to_businessman = true
 				$Boom.show()
-		give.emit(gave_to_businessman)
+			else:
+				successful_handout = true
+		give.emit(gave_to_businessman, successful_handout)
 
 	if Input.is_action_just_pressed("arrow_left"):
 		place -= 1
