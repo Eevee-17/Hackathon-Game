@@ -29,6 +29,15 @@ offset_bottom = 512.0
 texture_normal = ExtResource("2_obgj6")
 texture_pressed = ExtResource("3_ph37r")
 
+[node name="Score" type="Label" parent="."]
+offset_top = 184.0
+offset_right = 1152.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 40
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_1h60n")
 

@@ -3,16 +3,16 @@ extends Node2D
 @export var police_pile = 2
 
 var time = 0
-var money
+var original_money
 
 
 func start_game(input):
-	money = input
+	original_money = input
 
 
 func _on_character_body_2d_win(money: Variant) -> void:
 	await get_tree().create_timer(0.5).timeout
-	get_parent().won_game(money)
+	get_parent().won_game(money, money + 1)
 
 
 func _process(delta: float) -> void:
@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 
 func _on_character_body_2d_lose() -> void:
 	await get_tree().create_timer(0.5).timeout
-	get_parent().lost_game(money / 2)
+	get_parent().lost_game(original_money / 2, 5)

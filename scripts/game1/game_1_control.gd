@@ -6,9 +6,9 @@ func start_game(input):
 
 func _on_player_lose() -> void:
 	await get_tree().create_timer(1.0).timeout
-	get_parent().lost_game(0)
+	get_parent().lost_game(0, 5)
 
 
 func _on_player_win() -> void:
 	await get_tree().create_timer(1.0).timeout
-	get_parent().won_game(2)
+	get_parent().won_game(2, 2)

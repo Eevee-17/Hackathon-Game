@@ -7,15 +7,18 @@ var money = 0
 var scene
 var game_counter = 0
 var lives = 4
+var score = 0
 
 
-func lost_game(amount):
+func lost_game(money_amount, score_amount):
 	lives -= 1
-	money -= amount
+	money -= money_amount
+	score -= score_amount
 	end_game()
 
-func won_game(amount):
-	money += amount
+func won_game(money_amount, score_amoun):
+	money += money_amount
+	score += score_amoun
 	end_game()
 
 func end_game():

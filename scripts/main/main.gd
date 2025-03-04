@@ -7,12 +7,14 @@ extends Node2D
 var lives
 var money
 var game_counter = 0
+var score
 
 
 func start():
 	$TitleScreen.hide()
 	lives = $Game.lives
 	money = $Game.money
+	score = $Game.score
 	cutscene()
 
 func _ready() -> void:
@@ -36,6 +38,9 @@ func play_game(game, game_input, game_text):
 func cutscene():
 	lives = $Game.lives
 	money = $Game.money
+	score = $Game.score
+	
+	$InBetween/Score.text = "Score: " + str(score)
 	
 	if lives > 0:
 		if lives < 4:
@@ -68,6 +73,7 @@ func cutscene():
 	else:
 		$GameOver.show()
 		$GameOver/AudioStreamPlayer.play()
+		$GameOver/Score.text = "Score: " + str(score)
 
 func _on_game_game_ended(game_num: Variant, money_val: Variant, lives_left: Variant) -> void:
 	$GameBackgroundMusic.stop()
