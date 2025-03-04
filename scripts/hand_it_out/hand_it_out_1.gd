@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 func _on_player_give(is_business_man: Variant, is_successful_handout: Variant) -> void:
 	if is_business_man:
 		await get_tree().create_timer(1.0).timeout
-		get_parent().lost_game(start_money, start_money * 3 / time)
+		get_parent().lost_game(start_money, start_money * 3 / time + 1)
 	else:
 		money -= 1
 		if is_successful_handout:
