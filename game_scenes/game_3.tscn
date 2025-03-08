@@ -43,26 +43,23 @@ position = Vector2(346, 106)
 scale = Vector2(0.1, 0.1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(57, 595)
 script = ExtResource("1_ky8rs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(56, 595)
 shape = SubResource("CircleShape2D_q8sbg")
 
 [node name="Player" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(57, 589)
 scale = Vector2(0.0644613, 0.09525)
 texture = ExtResource("2_s2000")
 
 [node name="Boom" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(58, 607)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_f7c36")
 
 [node name="DetectionArea" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/DetectionArea"]
-position = Vector2(56, 595)
 shape = SubResource("CircleShape2D_q8sbg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
